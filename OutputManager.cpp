@@ -399,7 +399,7 @@ DUPL_RETURN OutputManager::UpdateApplicationWindow(_In_ PTR_INFO* PointerInfo, _
     if (Ret == DUPL_RETURN_SUCCESS)
     {
         // Present to window
-        hr = m_SwapChain->Present(1, 0);
+        hr = m_SwapChain->Present(0, 0);
 		Global::g_PaintDelayTime = ::timeGetTime() - Global::g_LastFrameTime;
 		Global::g_LastFrameTime = 0;
 		char cBuf[256] = { 0 };
