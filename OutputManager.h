@@ -5,8 +5,7 @@
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
 
-#ifndef _OUTPUTMANAGER_H_
-#define _OUTPUTMANAGER_H_
+#pragma once
 
 #include <stdio.h>
 
@@ -17,11 +16,11 @@
 // Handles the task of drawing into a window.
 // Has the functionality to draw the mouse given a mouse shape buffer and position
 //
-class OUTPUTMANAGER
+class OutputManager
 {
     public:
-        OUTPUTMANAGER();
-        ~OUTPUTMANAGER();
+        OutputManager();
+        ~OutputManager();
         DUPL_RETURN InitOutput(HWND Window, INT SingleOutput, _Out_ UINT* OutCount, _Out_ RECT* DeskBounds);
         DUPL_RETURN UpdateApplicationWindow(_In_ PTR_INFO* PointerInfo, _Inout_ bool* Occluded);
         void CleanRefs();
@@ -57,5 +56,3 @@ class OUTPUTMANAGER
         bool m_NeedsResize;
         DWORD m_OcclusionCookie;
 };
-
-#endif

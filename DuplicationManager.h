@@ -5,19 +5,18 @@
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
 
-#ifndef _DUPLICATIONMANAGER_H_
-#define _DUPLICATIONMANAGER_H_
+#pragma once
 
 #include "CommonTypes.h"
 
 //
 // Handles the task of duplicating an output.
 //
-class DUPLICATIONMANAGER
+class DuplicationManager
 {
     public:
-        DUPLICATIONMANAGER();
-        ~DUPLICATIONMANAGER();
+        DuplicationManager();
+        ~DuplicationManager();
         _Success_(*Timeout == false && return == DUPL_RETURN_SUCCESS) DUPL_RETURN GetFrame(_Out_ FRAME_DATA* Data, _Out_ bool* Timeout);
         DUPL_RETURN DoneWithFrame();
         DUPL_RETURN InitDupl(_In_ ID3D11Device* Device, UINT Output);
@@ -35,5 +34,3 @@ class DUPLICATIONMANAGER
         DXGI_OUTPUT_DESC m_OutputDesc;
         ID3D11Device* m_Device;
 };
-
-#endif

@@ -5,16 +5,15 @@
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
 
-#ifndef _THREADMANAGER_H_
-#define _THREADMANAGER_H_
+#pragma once
 
 #include "CommonTypes.h"
 
-class THREADMANAGER
+class ThreadManager
 {
     public:
-        THREADMANAGER();
-        ~THREADMANAGER();
+        ThreadManager();
+        ~ThreadManager();
         void Clean();
         DUPL_RETURN Initialize(INT SingleOutput, UINT OutputCount, HANDLE UnexpectedErrorEvent, HANDLE ExpectedErrorEvent, HANDLE TerminateThreadsEvent, HANDLE SharedHandle, _In_ RECT* DesktopDim);
         PTR_INFO* GetPointerInfo();
@@ -29,5 +28,3 @@ class THREADMANAGER
         _Field_size_(m_ThreadCount) HANDLE* m_ThreadHandles;
         _Field_size_(m_ThreadCount) THREAD_DATA* m_ThreadData;
 };
-
-#endif

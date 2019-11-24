@@ -5,19 +5,18 @@
 //
 // Copyright (c) Microsoft Corporation. All rights reserved
 
-#ifndef _DISPLAYMANAGER_H_
-#define _DISPLAYMANAGER_H_
+#pragma once
 
 #include "CommonTypes.h"
 
 //
 // Handles the task of processing frames
 //
-class DISPLAYMANAGER
+class DisplayManager
 {
     public:
-        DISPLAYMANAGER();
-        ~DISPLAYMANAGER();
+        DisplayManager();
+        ~DisplayManager();
         void InitD3D(DX_RESOURCES* Data);
         ID3D11Device* GetDevice();
         DUPL_RETURN ProcessFrame(_In_ FRAME_DATA* Data, _Inout_ ID3D11Texture2D* SharedSurf, INT OffsetX, INT OffsetY, _In_ DXGI_OUTPUT_DESC* DeskDesc);
@@ -42,5 +41,3 @@ class DISPLAYMANAGER
         BYTE* m_DirtyVertexBufferAlloc;
         UINT m_DirtyVertexBufferAllocSize;
 };
-
-#endif

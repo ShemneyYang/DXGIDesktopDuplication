@@ -12,7 +12,7 @@ using namespace DirectX;
 //
 // Constructor NULLs out all pointers & sets appropriate var vals
 //
-OUTPUTMANAGER::OUTPUTMANAGER() : m_SwapChain(nullptr),
+OutputManager::OutputManager() : m_SwapChain(nullptr),
                                  m_Device(nullptr),
                                  m_Factory(nullptr),
                                  m_DeviceContext(nullptr),
@@ -33,7 +33,7 @@ OUTPUTMANAGER::OUTPUTMANAGER() : m_SwapChain(nullptr),
 //
 // Destructor which calls CleanRefs to release all references and memory.
 //
-OUTPUTMANAGER::~OUTPUTMANAGER()
+OutputManager::~OutputManager()
 {
     CleanRefs();
 }
@@ -41,7 +41,7 @@ OUTPUTMANAGER::~OUTPUTMANAGER()
 //
 // Indicates that window has been resized.
 //
-void OUTPUTMANAGER::WindowResize()
+void OutputManager::WindowResize()
 {
     m_NeedsResize = true;
 }
@@ -49,7 +49,7 @@ void OUTPUTMANAGER::WindowResize()
 //
 // Initialize all state
 //
-DUPL_RETURN OUTPUTMANAGER::InitOutput(HWND Window, INT SingleOutput, _Out_ UINT* OutCount, _Out_ RECT* DeskBounds)
+DUPL_RETURN OutputManager::InitOutput(HWND Window, INT SingleOutput, _Out_ UINT* OutCount, _Out_ RECT* DeskBounds)
 {
     HRESULT hr;
 
@@ -222,7 +222,7 @@ DUPL_RETURN OUTPUTMANAGER::InitOutput(HWND Window, INT SingleOutput, _Out_ UINT*
 //
 // Recreate shared texture
 //
-DUPL_RETURN OUTPUTMANAGER::CreateSharedSurf(INT SingleOutput, _Out_ UINT* OutCount, _Out_ RECT* DeskBounds)
+DUPL_RETURN OutputManager::CreateSharedSurf(INT SingleOutput, _Out_ UINT* OutCount, _Out_ RECT* DeskBounds)
 {
     HRESULT hr;
 
@@ -356,7 +356,7 @@ DUPL_RETURN OUTPUTMANAGER::CreateSharedSurf(INT SingleOutput, _Out_ UINT* OutCou
 //
 // Present to the application window
 //
-DUPL_RETURN OUTPUTMANAGER::UpdateApplicationWindow(_In_ PTR_INFO* PointerInfo, _Inout_ bool* Occluded)
+DUPL_RETURN OutputManager::UpdateApplicationWindow(_In_ PTR_INFO* PointerInfo, _Inout_ bool* Occluded)
 {
 	HRESULT hr = S_OK;
     // In a typical desktop duplication application there would be an application running on one system collecting the desktop images
@@ -421,7 +421,7 @@ DUPL_RETURN OUTPUTMANAGER::UpdateApplicationWindow(_In_ PTR_INFO* PointerInfo, _
 //
 // Returns shared handle
 //
-HANDLE OUTPUTMANAGER::GetSharedHandle()
+HANDLE OutputManager::GetSharedHandle()
 {
     HANDLE Hnd = nullptr;
 
@@ -442,7 +442,7 @@ HANDLE OUTPUTMANAGER::GetSharedHandle()
 //
 // Draw frame into backbuffer
 //
-DUPL_RETURN OUTPUTMANAGER::DrawFrame()
+DUPL_RETURN OutputManager::DrawFrame()
 {
     HRESULT hr;
 
@@ -549,7 +549,7 @@ DUPL_RETURN OUTPUTMANAGER::DrawFrame()
 //
 // Process both masked and monochrome pointers
 //
-DUPL_RETURN OUTPUTMANAGER::ProcessMonoMask(bool IsMono, _Inout_ PTR_INFO* PtrInfo, _Out_ INT* PtrWidth, _Out_ INT* PtrHeight, _Out_ INT* PtrLeft, _Out_ INT* PtrTop, _Outptr_result_bytebuffer_(*PtrHeight * *PtrWidth * BPP) BYTE** InitBuffer, _Out_ D3D11_BOX* Box)
+DUPL_RETURN OutputManager::ProcessMonoMask(bool IsMono, _Inout_ PTR_INFO* PtrInfo, _Out_ INT* PtrWidth, _Out_ INT* PtrHeight, _Out_ INT* PtrLeft, _Out_ INT* PtrTop, _Outptr_result_bytebuffer_(*PtrHeight * *PtrWidth * BPP) BYTE** InitBuffer, _Out_ D3D11_BOX* Box)
 {
     // Desktop dimensions
     D3D11_TEXTURE2D_DESC FullDesc;
@@ -734,7 +734,7 @@ DUPL_RETURN OUTPUTMANAGER::ProcessMonoMask(bool IsMono, _Inout_ PTR_INFO* PtrInf
 //
 // Draw mouse provided in buffer to backbuffer
 //
-DUPL_RETURN OUTPUTMANAGER::DrawMouse(_In_ PTR_INFO* PtrInfo)
+DUPL_RETURN OutputManager::DrawMouse(_In_ PTR_INFO* PtrInfo)
 {
 	return DUPL_RETURN_SUCCESS;
     // Vars to be used
@@ -927,7 +927,7 @@ DUPL_RETURN OUTPUTMANAGER::DrawMouse(_In_ PTR_INFO* PtrInfo)
 //
 // Initialize shaders for drawing to screen
 //
-DUPL_RETURN OUTPUTMANAGER::InitShaders()
+DUPL_RETURN OutputManager::InitShaders()
 {
     HRESULT hr;
 
@@ -964,7 +964,7 @@ DUPL_RETURN OUTPUTMANAGER::InitShaders()
 //
 // Reset render target view
 //
-DUPL_RETURN OUTPUTMANAGER::MakeRTV()
+DUPL_RETURN OutputManager::MakeRTV()
 {
     // Get backbuffer
     ID3D11Texture2D* BackBuffer = nullptr;
@@ -991,7 +991,7 @@ DUPL_RETURN OUTPUTMANAGER::MakeRTV()
 //
 // Set new viewport
 //
-void OUTPUTMANAGER::SetViewPort(UINT Width, UINT Height)
+void OutputManager::SetViewPort(UINT Width, UINT Height)
 {
     D3D11_VIEWPORT VP;
     VP.Width = static_cast<FLOAT>(Width);
@@ -1006,7 +1006,7 @@ void OUTPUTMANAGER::SetViewPort(UINT Width, UINT Height)
 //
 // Resize swapchain
 //
-DUPL_RETURN OUTPUTMANAGER::ResizeSwapChain()
+DUPL_RETURN OutputManager::ResizeSwapChain()
 {
     if (m_RTV)
     {
@@ -1044,7 +1044,7 @@ DUPL_RETURN OUTPUTMANAGER::ResizeSwapChain()
 //
 // Releases all references
 //
-void OUTPUTMANAGER::CleanRefs()
+void OutputManager::CleanRefs()
 {
     if (m_VertexShader)
     {

@@ -18,7 +18,7 @@
 //
 // Globals
 //
-OUTPUTMANAGER OutMgr;
+OutputManager OutMgr;
 
 // Below are lists of errors expect from Dxgi API calls when a transition event like mode change, PnpStop, PnpStart
 // desktop switch, TDR or session disconnect/reconnect. In all these cases we want the application to clean up the threads that process
@@ -242,7 +242,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
     UpdateWindow(WindowHandle);
 	::SetTimer(WindowHandle, 6666, 100, NULL);
 
-    THREADMANAGER ThreadMgr;
+    ThreadManager ThreadMgr;
     RECT DeskBounds;
     UINT OutputCount;
 
@@ -446,8 +446,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 DWORD WINAPI DDProc(_In_ void* Param)
 {
     // Classes
-    DISPLAYMANAGER DispMgr;
-    DUPLICATIONMANAGER DuplMgr;
+    DisplayManager DispMgr;
+    DuplicationManager DuplMgr;
 
     // D3D objects
     ID3D11Texture2D* SharedSurf = nullptr;

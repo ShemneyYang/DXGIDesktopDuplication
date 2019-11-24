@@ -11,7 +11,7 @@
 //
 // Constructor sets up references / variables
 //
-DUPLICATIONMANAGER::DUPLICATIONMANAGER() : m_DeskDupl(nullptr),
+DuplicationManager::DuplicationManager() : m_DeskDupl(nullptr),
                                            m_AcquiredDesktopImage(nullptr),
                                            m_MetaDataBuffer(nullptr),
                                            m_MetaDataSize(0),
@@ -24,7 +24,7 @@ DUPLICATIONMANAGER::DUPLICATIONMANAGER() : m_DeskDupl(nullptr),
 //
 // Destructor simply calls CleanRefs to destroy everything
 //
-DUPLICATIONMANAGER::~DUPLICATIONMANAGER()
+DuplicationManager::~DuplicationManager()
 {
     if (m_DeskDupl)
     {
@@ -54,7 +54,7 @@ DUPLICATIONMANAGER::~DUPLICATIONMANAGER()
 //
 // Initialize duplication interfaces
 //
-DUPL_RETURN DUPLICATIONMANAGER::InitDupl(_In_ ID3D11Device* Device, UINT Output)
+DUPL_RETURN DuplicationManager::InitDupl(_In_ ID3D11Device* Device, UINT Output)
 {
     m_OutputNumber = Output;
 
@@ -122,7 +122,7 @@ DUPL_RETURN DUPLICATIONMANAGER::InitDupl(_In_ ID3D11Device* Device, UINT Output)
 //
 // Retrieves mouse info and write it into PtrInfo
 //
-DUPL_RETURN DUPLICATIONMANAGER::GetMouse(_Inout_ PTR_INFO* PtrInfo, _In_ DXGI_OUTDUPL_FRAME_INFO* FrameInfo, INT OffsetX, INT OffsetY)
+DUPL_RETURN DuplicationManager::GetMouse(_Inout_ PTR_INFO* PtrInfo, _In_ DXGI_OUTDUPL_FRAME_INFO* FrameInfo, INT OffsetX, INT OffsetY)
 {
     // A non-zero mouse update timestamp indicates that there is a mouse position update and optionally a shape change
     if (FrameInfo->LastMouseUpdateTime.QuadPart == 0)
@@ -200,7 +200,7 @@ DUPL_RETURN DUPLICATIONMANAGER::GetMouse(_Inout_ PTR_INFO* PtrInfo, _In_ DXGI_OU
 // Get next frame and write it into Data
 //
 _Success_(*Timeout == false && return == DUPL_RETURN_SUCCESS)
-DUPL_RETURN DUPLICATIONMANAGER::GetFrame(_Out_ FRAME_DATA* Data, _Out_ bool* Timeout)
+DUPL_RETURN DuplicationManager::GetFrame(_Out_ FRAME_DATA* Data, _Out_ bool* Timeout)
 {
     IDXGIResource* DesktopResource = nullptr;
     DXGI_OUTDUPL_FRAME_INFO FrameInfo;
@@ -314,7 +314,7 @@ DUPL_RETURN DUPLICATIONMANAGER::GetFrame(_Out_ FRAME_DATA* Data, _Out_ bool* Tim
 //
 // Release frame
 //
-DUPL_RETURN DUPLICATIONMANAGER::DoneWithFrame()
+DUPL_RETURN DuplicationManager::DoneWithFrame()
 {
     HRESULT hr = m_DeskDupl->ReleaseFrame();
     if (FAILED(hr))
@@ -334,7 +334,7 @@ DUPL_RETURN DUPLICATIONMANAGER::DoneWithFrame()
 //
 // Gets output desc into DescPtr
 //
-void DUPLICATIONMANAGER::GetOutputDesc(_Out_ DXGI_OUTPUT_DESC* DescPtr)
+void DuplicationManager::GetOutputDesc(_Out_ DXGI_OUTPUT_DESC* DescPtr)
 {
     *DescPtr = m_OutputDesc;
 }
