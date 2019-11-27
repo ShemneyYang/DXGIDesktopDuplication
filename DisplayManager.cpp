@@ -6,6 +6,11 @@
 // Copyright (c) Microsoft Corporation. All rights reserved
 
 #include "DisplayManager.h"
+#include <stdio.h>
+#include <tchar.h>
+#include "TextureToFile.h"
+#include <malloc.h>
+#include <sstream>
 using namespace DirectX;
 
 //
@@ -52,10 +57,10 @@ void DisplayManager::InitD3D(DX_RESOURCES* Data)
 
     m_Device->AddRef();
     m_DeviceContext->AddRef();
-    m_VertexShader->AddRef();
-    m_PixelShader->AddRef();
-    m_InputLayout->AddRef();
-    m_SamplerLinear->AddRef();
+	m_VertexShader->AddRef();
+	m_PixelShader->AddRef();
+	m_InputLayout->AddRef();
+	m_SamplerLinear->AddRef();
 }
 
 //
@@ -316,9 +321,8 @@ void DisplayManager::SetDirtyVert(_Out_writes_(NUMVERTICES) VERTEX* Vertices, _I
 //
 DUPL_RETURN DisplayManager::CopyDirty(_In_ ID3D11Texture2D* SrcSurface, _Inout_ ID3D11Texture2D* SharedSurf, _In_reads_(DirtyCount) RECT* DirtyBuffer, UINT DirtyCount, INT OffsetX, INT OffsetY, _In_ DXGI_OUTPUT_DESC* DeskDesc)
 {
-
 	m_DeviceContext->CopyResource(SharedSurf, SrcSurface);
-	return DUPL_RETURN_SUCCESS;
+	/*return DUPL_RETURN_SUCCESS;*/
 
     HRESULT hr;
 
@@ -327,6 +331,39 @@ DUPL_RETURN DisplayManager::CopyDirty(_In_ ID3D11Texture2D* SrcSurface, _Inout_ 
 
     D3D11_TEXTURE2D_DESC ThisDesc;
     SrcSurface->GetDesc(&ThisDesc);
+
+	if (1)
+	{
+		ID3D11Texture2D* CpuReadTexture = nullptr;
+		D3D11CopyTexture(&CpuReadTexture, SrcSurface, m_Device, m_DeviceContext);
+		if (CpuReadTexture) {
+
+			std::wstring filepath;
+			{
+				// 
+				static std::wstring CurPath = ExePath();
+				std::wstringstream wss;
+				static DWORD BmpNumber = 0;
+				BmpNumber++;
+				wss << CurPath;
+				wss << "\\ScreenShot";
+				if (!DirectoryExists(wss.str().c_str())) {
+					CreateDirectory(wss.str().c_str(), NULL);
+				}
+				wss << "\\DesktopDuplication-" << BmpNumber << L".bmp";
+				filepath = wss.str();
+			}
+#if 0
+			// sync save may lost render frames
+			SaveTextureToBmp(filepath.c_str(), CpuReadTexture);
+#else
+			AsyncSaveTextureToBmp(filepath.c_str(), CpuReadTexture);
+#endif
+
+			CpuReadTexture->Release();
+		}
+	}
+	return DUPL_RETURN_SUCCESS; 
 
     if (!m_RTV)
     {

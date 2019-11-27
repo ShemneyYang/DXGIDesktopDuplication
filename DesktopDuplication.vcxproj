@@ -22,7 +22,7 @@
     <Keyword>Win32Proj</Keyword>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ProjectGuid>{05050918-71E9-AF87-0B3C-6F34D471A55A}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -117,7 +117,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(OutDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -162,6 +162,7 @@
     <ClCompile Include="DuplicationManager.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="OutputManager.cpp" />
+    <ClCompile Include="TextureToFile.cpp" />
     <ClCompile Include="ThreadManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +171,7 @@
     <ClInclude Include="DuplicationManager.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="OutputManager.h" />
+    <ClInclude Include="TextureToFile.h" />
     <ClInclude Include="ThreadManager.h" />
   </ItemGroup>
   <ItemGroup>

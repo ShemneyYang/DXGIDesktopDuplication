@@ -13,7 +13,7 @@
 #include "DuplicationManager.h"
 #include "OutputManager.h"
 #include "ThreadManager.h"
-
+#include "TextureToFile.h"
 
 //
 // Globals
@@ -152,6 +152,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+	// used to start wic
+	HRESULT Hr = ::CoInitializeEx(NULL, COINIT_MULTITHREADED);
+	if (FAILED(Hr)) return 0;
+
     INT SingleOutput;
 
     // Synchronization
@@ -192,6 +196,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
         ProcessFailure(nullptr, L"TerminateThreadsEvent creation failed", L"Error", E_UNEXPECTED);
         return 0;
     }
+
+	// create and start ansyc save texture thread
+	StartAnsycSaveTextureThread();
 
     // Load simple cursor
     HCURSOR Cursor = nullptr;
@@ -348,6 +355,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
         ThreadMgr.WaitForThreadTermination();
     }
 
+	// close ansyc save texture thread
+	StopAnsycSaveTextureThread();
+
     // Clean up
     CloseHandle(UnexpectedErrorEvent);
     CloseHandle(ExpectedErrorEvent);
@@ -359,6 +369,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
         return static_cast<INT>(msg.wParam);
     }
 
+	::CoUninitialize();
     return 0;
 }
 
