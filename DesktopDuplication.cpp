@@ -13,7 +13,11 @@
 #include "DuplicationManager.h"
 #include "OutputManager.h"
 #include "ThreadManager.h"
+<<<<<<< HEAD:WinMain.cpp
 #include "TextureToFile.h"
+=======
+
+>>>>>>> parent of b2ea4f6... 增加SimpleDemo:DesktopDuplication.cpp
 
 //
 // Globals

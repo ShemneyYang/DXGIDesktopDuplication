@@ -67,6 +67,7 @@ typedef struct _DX_RESOURCES
     ID3D11PixelShader* PixelShader;
     ID3D11InputLayout* InputLayout;
     ID3D11SamplerState* SamplerLinear;
+	ID3D11Texture2D* stagingTexture;
 } DX_RESOURCES;
 
 //
@@ -83,7 +84,7 @@ typedef struct _THREAD_DATA
     // Used by WinProc to signal to threads to exit
     HANDLE TerminateThreadsEvent;
 
-    HANDLE TexSharedHandle;
+	ID3D11Texture2D* TexSharedHandle;
     UINT Output;
     INT OffsetX;
     INT OffsetY;

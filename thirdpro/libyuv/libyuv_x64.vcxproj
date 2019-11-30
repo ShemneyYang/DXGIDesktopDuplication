@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <PlatformToolset>v140_xp</PlatformToolset>
+    <ProjectGuid>{BB02FB04-1CBC-388C-BD3E-8031AD4CD80C}</ProjectGuid>
+    <RootNamespace>libyuv</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="Configuration">
+    <OutputDirectory>..\..\x64\bin\debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>x64\debug\</IntermediateDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="Configuration">
+    <OutputDirectory>..\..\x64\bin\release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>x64\release\</IntermediateDirectory>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  </ImportGroup>
+  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">..\..\bin\debug\</OutDir>
+    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\</IntDir>
+    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">libyuv_x64</TargetName>
+    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</IgnoreImportLibrary>
+    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">..\..\bin\release\</OutDir>
+    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\</IntDir>
+    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">libyuv_x64</TargetName>
+    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">
+    <ClCompile>
+      <AdditionalIncludeDirectories>"d:\Qt\4.7.1\include\QtCore";"d:\Qt\4.7.1\include\QtGui";"d:\Qt\4.7.1\include";".";"..";"..\..\include";"..\..\include\source";"..\..\depends\dw3rd\zlib2015-1.2.5\include";"..\..\depends\dw3rd\curl2015-7.50.3\include";"..\..\depends\dw3rd\boost2015-1.66.0.140\include";"..\..\depends\dwinternal\framework2015\include";"..\utils";"..\..\depends\dw3rd\directx-jun2010\include";"..\..\depends\dw3rd\ffmpeg_msvc2015-3.1.1.r80902_x86_msvc14\include";"..\..\depends\dw3rd\opencv2015-3.1.0\include";"..\..\depends\dw3rd\cef-3.2556.1376";"..\..\depends\dw3rd\openssl2015-1.0.2e";"include";"..\..\depends\dw3rd\libjpeg-turbo2015-1.5.1\include";"d:\Qt\4.7.1\include\ActiveQt";"debug";d:\Qt\4.7.1\mkspecs\win32-msvc2010;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>x64\debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>x64\debug\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;DUI_ACCESSIBLE;_WINDOWS;UNICODE;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_SECURE_NO_WARNINGS;LIBYUV_BUILDING_SHARED_LIBRARY;HAVE_JPEG;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dwbase.lib;dwutility.lib;../../depends/dw3rd/libjpeg-turbo2015-1.5.1/lib/Release/x64/jpeg-static.lib;..\..\depends\dw3rd\qt2015-4.7.1\lib\debug\QtGuid4.lib;..\..\depends\dw3rd\qt2015-4.7.1\lib\debug\QtCored4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(TargetDir);..\..\depends\dwinternal\framework2015\lib\debug;..\..\depends\dwinternal\lightreport2015\lib\debug;..\..\depends\dw3rd\qt2015-4.7.1\lib\debug;..\..\depends\dw3rd\boost2015-1.66.0.140\lib\release;..\..\depends\dw3rd\curl2015-7.50.3\lib\release-dll;..\..\depends\dw3rd\directx-jun2010\lib\release\x86;..\..\depends\dw3rd\ffmpeg_msvc2015-3.1.1.r80902_x86_msvc14\lib\x86;..\..\depends\dw3rd\opencv2015-3.1.0\lib\Release;..\..\depends\dw3rd\cef-3.2556.1376\lib\Release;..\..\depends\dw3rd\openssl2015-1.0.2e\lib\release;d:\Qt\4.7.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4254 /debugtype:cv,fixup %(AdditionalOptions)</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <OutputFile>..\..\bin\debug\libyuv_x64.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Midl />
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;DUI_ACCESSIBLE;_WINDOWS;UNICODE;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_SECURE_NO_WARNINGS;LIBYUV_BUILDING_SHARED_LIBRARY;HAVE_JPEG;QT_DLL;QT_GUI_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
+    <ClCompile>
+      <AdditionalIncludeDirectories>"d:\Qt\4.7.1\include\QtCore";"d:\Qt\4.7.1\include\QtGui";"d:\Qt\4.7.1\include";".";"..";"..\..\include";"..\..\include\source";"..\..\depends\dw3rd\zlib2015-1.2.5\include";"..\..\depends\dw3rd\curl2015-7.50.3\include";"..\..\depends\dw3rd\boost2015-1.66.0.140\include";"..\..\depends\dwinternal\framework2015\include";"..\utils";"..\..\depends\dw3rd\directx-jun2010\include";"..\..\depends\dw3rd\ffmpeg_msvc2015-3.1.1.r80902_x86_msvc14\include";"..\..\depends\dw3rd\opencv2015-3.1.0\include";"..\..\depends\dw3rd\cef-3.2556.1376";"..\..\depends\dw3rd\openssl2015-1.0.2e";"include";"..\..\depends\dw3rd\libjpeg-turbo2015-1.5.1\include";"d:\Qt\4.7.1\include\ActiveQt";"release";d:\Qt\4.7.1\mkspecs\win32-msvc2010;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm200 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>x64\release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>x64\release\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>QT_NO_DEBUG;NDEBUG;_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;DUI_ACCESSIBLE;_WINDOWS;UNICODE;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_SECURE_NO_WARNINGS;LIBYUV_BUILDING_SHARED_LIBRARY;HAVE_JPEG;QT_DLL;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dwbase.lib;dwutility.lib;../../depends/dw3rd/libjpeg-turbo2015-1.5.1/lib/Release/x64/jpeg-static.lib;..\..\depends\dw3rd\qt2015-4.7.1\lib\release\QtGui4.lib;..\..\depends\dw3rd\qt2015-4.7.1\lib\release\QtCore4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(TargetDir);..\..\depends\dwinternal\framework2015\lib\release;..\..\depends\dwinternal\lightreport2015\lib\release;..\..\depends\dw3rd\qt2015-4.7.1\lib\release;..\..\depends\dw3rd\boost2015-1.66.0.140\lib\release;..\..\depends\dw3rd\curl2015-7.50.3\lib\release-dll;..\..\depends\dw3rd\directx-jun2010\lib\release\x86;..\..\depends\dw3rd\ffmpeg_msvc2015-3.1.1.r80902_x86_msvc14\lib\x86;..\..\depends\dw3rd\opencv2015-3.1.0\lib\Release;..\..\depends\dw3rd\cef-3.2556.1376\lib\Release;..\..\depends\dw3rd\openssl2015-1.0.2e\lib\release;d:\Qt\4.7.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4254 %(AdditionalOptions)</AdditionalOptions>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>..\..\bin\release\libyuv_x64.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Midl />
+    <ResourceCompile>
+      <PreprocessorDefinitions>QT_NO_DEBUG;NDEBUG;_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;DUI_ACCESSIBLE;_WINDOWS;UNICODE;_CRT_NON_CONFORMING_SWPRINTFS;_CRT_SECURE_NO_WARNINGS;LIBYUV_BUILDING_SHARED_LIBRARY;HAVE_JPEG;QT_DLL;QT_NO_DEBUG;QT_GUI_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\compare.cc" />
+    <ClCompile Include="source\compare_common.cc" />
+    <ClCompile Include="source\compare_gcc.cc" />
+    <ClCompile Include="source\compare_neon.cc" />
+    <ClCompile Include="source\compare_neon64.cc" />
+    <ClCompile Include="source\compare_win.cc" />
+    <ClCompile Include="source\convert.cc" />
+    <ClCompile Include="source\convert_argb.cc" />
+    <ClCompile Include="source\convert_from.cc" />
+    <ClCompile Include="source\convert_from_argb.cc" />
+    <ClCompile Include="source\convert_jpeg.cc" />
+    <ClCompile Include="source\convert_to_argb.cc" />
+    <ClCompile Include="source\convert_to_i420.cc" />
+    <ClCompile Include="source\cpu_id.cc" />
+    <ClCompile Include="source\mjpeg_decoder.cc" />
+    <ClCompile Include="source\mjpeg_validate.cc" />
+    <ClCompile Include="source\planar_functions.cc" />
+    <ClCompile Include="source\rotate.cc" />
+    <ClCompile Include="source\rotate_any.cc" />
+    <ClCompile Include="source\rotate_argb.cc" />
+    <ClCompile Include="source\rotate_common.cc" />
+    <ClCompile Include="source\rotate_gcc.cc" />
+    <ClCompile Include="source\rotate_mips.cc" />
+    <ClCompile Include="source\rotate_neon.cc" />
+    <ClCompile Include="source\rotate_neon64.cc" />
+    <ClCompile Include="source\rotate_win.cc" />
+    <ClCompile Include="source\row_any.cc" />
+    <ClCompile Include="source\row_common.cc" />
+    <ClCompile Include="source\row_gcc.cc" />
+    <ClCompile Include="source\row_mips.cc" />
+    <ClCompile Include="source\row_neon.cc" />
+    <ClCompile Include="source\row_neon64.cc" />
+    <ClCompile Include="source\row_win.cc" />
+    <ClCompile Include="source\scale.cc" />
+    <ClCompile Include="source\scale_any.cc" />
+    <ClCompile Include="source\scale_argb.cc" />
+    <ClCompile Include="source\scale_common.cc" />
+    <ClCompile Include="source\scale_gcc.cc" />
+    <ClCompile Include="source\scale_mips.cc" />
+    <ClCompile Include="source\scale_neon.cc" />
+    <ClCompile Include="source\scale_neon64.cc" />
+    <ClCompile Include="source\scale_win.cc" />
+    <ClCompile Include="source\video_common.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\libyuv\basic_types.h" />
+    <ClInclude Include="include\libyuv\compare.h" />
+    <ClInclude Include="include\libyuv\compare_row.h" />
+    <ClInclude Include="include\libyuv\convert.h" />
+    <ClInclude Include="include\libyuv\convert_argb.h" />
+    <ClInclude Include="include\libyuv\convert_from.h" />
+    <ClInclude Include="include\libyuv\convert_from_argb.h" />
+    <ClInclude Include="include\libyuv\cpu_id.h" />
+    <ClInclude Include="include\libyuv.h" />
+    <ClInclude Include="include\libyuv\mjpeg_decoder.h" />
+    <ClInclude Include="include\libyuv\planar_functions.h" />
+    <ClInclude Include="include\libyuv\rotate.h" />
+    <ClInclude Include="include\libyuv\rotate_argb.h" />
+    <ClInclude Include="include\libyuv\rotate_row.h" />
+    <ClInclude Include="include\libyuv\row.h" />
+    <ClInclude Include="include\libyuv\scale.h" />
+    <ClInclude Include="include\libyuv\scale_argb.h" />
+    <ClInclude Include="include\libyuv\scale_row.h" />
+    <ClInclude Include="include\libyuv\version.h" />
+    <ClInclude Include="include\libyuv\video_common.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\include\version.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
