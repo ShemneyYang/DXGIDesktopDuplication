@@ -18,13 +18,24 @@ public:
 	void getDesktopCapture(int& w, int& h);
 
 	unsigned char* getRGBData(void);
-
 	int getRGBDataLen(void);
 
-private:
-	void _initStagingTexture(int w, int h);
+	HANDLE getShareHandle() const;
 
 private:
+	void _initStagingTexture(int w, int h, DXGI_FORMAT Format);
+	void _dealWithStageCopy(const D3D11_TEXTURE2D_DESC &desktopDesc, ComPtr<ID3D11Texture2D> srcTexture);
+	void _initShareHandleTexture(int w, int h, DXGI_FORMAT Format);
+	void _dealWithShareHandle(const D3D11_TEXTURE2D_DESC &desktopDesc, ComPtr<ID3D11Texture2D> srcTexture);
+	void _testShareHandle(const D3D11_TEXTURE2D_DESC &desktopDesc);
+
+private:
+	enum OutputType
+	{
+		OT_ShareHandle = 1,
+		OT_MemCopy = 2,
+	};
+	OutputType	m_outputType;
 	ComPtr<ID3D11Device> m_device;
 	ComPtr<ID3D11DeviceContext> m_context;
 	ComPtr<ID3D11VertexShader> m_vertexShader;
@@ -33,6 +44,8 @@ private:
 	ComPtr<ID3D11SamplerState> m_samplerLinear;
 	ComPtr<ID3D11Texture2D> m_desktopTexture;
 	ComPtr<ID3D11Texture2D> m_stagingTexture;
+	ComPtr<ID3D11Texture2D> m_shareHandletexture;
+	HANDLE		m_sharehandle;
 
 	DXGI_OUTPUT_DESC m_outputDesc;
 	ComPtr<IDXGIOutputDuplication> m_deskDupl;

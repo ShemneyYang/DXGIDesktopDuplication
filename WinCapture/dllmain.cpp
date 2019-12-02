@@ -78,3 +78,8 @@ int winCapture_getRGBDataLen(void)
 
 	return g_desktopCaptrue->getRGBDataLen();
 }
+
+int winCapture_getShareHandle(void)
+{
+	return (int)g_desktopCaptrue->getShareHandle();
+}
