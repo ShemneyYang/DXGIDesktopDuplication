@@ -14,7 +14,7 @@ int Global::g_captureTime = 0;
 int Global::g_renderTime = 0;
 int Global::g_totalTime = 0;
 
-Global::ERenderType Global::g_renderType = Global::RT_THREAD_SDL_RGB;
+Global::ERenderType Global::g_renderType = Global::RT_THREAD;
 
 bool Global::GetFileSize(const std::wstring& strFilePath, ULONGLONG& nFileSize)
 {
