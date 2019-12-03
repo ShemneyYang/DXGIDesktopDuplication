@@ -171,14 +171,14 @@ void CDesktopCaptrue::getDesktopCapture(int& w, int& h)
 	w = 0;
 	h = 0;
 	DXGI_OUTDUPL_FRAME_INFO frameInfo = { 0 };
-	ComPtr<IDXGIResource> desktopResource;
+	ComPtr<IDXGIResource> desktopResource = nullptr;
 	HRESULT hr = m_deskDupl->AcquireNextFrame(1, &frameInfo, &desktopResource);
 	if (hr == DXGI_ERROR_WAIT_TIMEOUT)
 	{
 		return;
 	}
 
-	if (DXGI_ERROR_INVALID_CALL == hr)
+	if (DXGI_ERROR_INVALID_CALL == hr || nullptr == desktopResource)
 	{
 		return;
 	}
